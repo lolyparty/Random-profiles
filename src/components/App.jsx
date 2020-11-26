@@ -1,13 +1,22 @@
 import React from 'react';
-import {Search} from './searchinput/search-component'
-import {Cardgrid} from './cards-grid/cards-grid-component'
+import { Search } from './searchinput/search-component';
+import { Cardgrid } from './cards-grid/cards-grid-component';
 
- const App = ()=>{
-     return <div className="container">
-     <h1 className="name">Profiles</h1>
-        <Search />
-        <Cardgrid />
-     </div>
- }
+const App = () => {
+  const [inputState, setInput] = React.useState('');
 
- export {App}
+  const changed = (e) => {
+    const { value } = e.target;
+    setInput(value);
+  };
+
+  return (
+    <div className="container">
+      <h1 className="name">Profiles</h1>
+      <Search change={changed} />
+      <Cardgrid />
+    </div>
+  );
+};
+
+export { App };
