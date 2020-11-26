@@ -12,9 +12,11 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="name">Profiles</h1>
+      <h1 className="header">Profiles</h1>
       <Search change={changed} />
-      <Cardgrid />
+      <Cardgrid 
+        searched={inputState}
+      />
     </div>
   );
 };

@@ -1,23 +1,38 @@
-import React, { Component, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Card} from '../cards/cards-component'
 
 
-const Cardgrid = ()=>{
-    const [cardState, setCardState] = React.useState()
+const Cardgrid = (props)=>{
+    const [cardState, setCardState] = useState()
 
-    // React.useEffect(()=>{
-    //     async ()=>{
-    //         const reponse = await fetch('http://jsonplaceholder.typicode.com/users')
-    //         const data = await reponse.json()
-    //         setCardState(data)
-    //     }
-    // }, [])
+    
+
+    useEffect(()=>{
+        const getData = async ()=>{
+            
+            const reponse = await fetch('http://jsonplaceholder.typicode.com/users')
+            const data = await reponse.json()
+            setCardState(data)
+            // 
+    }
+    getData()
+        
+}, [])
+
     return <div className="cards-grid">
-    {console.log(cardState)}
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+    {cardState && cardState.map((item)=>{
+        if(item.name.toLowerCase().includes(props.searched.toLowerCase())){
+            return (
+                <Card
+        key={item.id}
+        src={`https://robohash.org/${item.id}`}
+        email={item.email}
+        name={item.name}
+        
+         />
+            )
+        }
+    })}
     </div>
 }
 

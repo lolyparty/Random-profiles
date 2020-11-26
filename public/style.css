@@ -5,8 +5,7 @@
 
 .container{
     background:linear-gradient(90deg, #027ab3, #014666);
-    width:100vw;
-    height:100vh;
+    padding:20px;
 }
 
 h1{
@@ -48,9 +47,18 @@ input{
 .card{
     text-align: center;
     padding:10px;
-    background:#fff;
+    background:#cecece;
     box-shadow:0px 0px 20px 1px rgb(128, 128, 128);
     margin:10px;
     border-radius:10px;
     width:300px;
+}
+
+.profilepic{
+    max-height:250px;
+}
+
+.name{
+    font-size:1.1rem;
+    margin:5px auto;
 }
